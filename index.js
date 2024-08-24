@@ -21,6 +21,11 @@ app.listen(PORT, () => {
   console.log(`server listening on port 5000, http://localhost:${PORT}`);
 });
 
+app.get('/', (req, res) => {
+  res.status(200).json({
+    message: 'OK',
+  });
+})
 
 app.use("/api/v1/tasks", taskRouter)
 
