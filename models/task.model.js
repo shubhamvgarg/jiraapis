@@ -27,7 +27,7 @@ const taskSchema = new mongoose.Schema({
         required: true,
         validate: {
             validator: function(v) {
-                return  v === /^\d{2}[A-Za-z]{3}\d{4}$/.test(v) || /^\d{1}[A-Za-z]{3}\d{4}$/.test(v); // Matches DDMMMYYYY format
+                return /^\d{4}-\d{2}-\d{2}$/.test(v); // Matches DDMMMYYYY format
             },
             message: props => `${props.value} is not a valid date format!`
         }
@@ -37,7 +37,7 @@ const taskSchema = new mongoose.Schema({
         validate: {
             validator: function(v) {
                 // End date can be empty or must match the DDMMMYYYY format
-                return v === '' || /^\d{2}[A-Za-z]{3}\d{4}$/.test(v) || /^\d{1}[A-Za-z]{3}\d{4}$/.test(v);
+                return v === '' || /^\d{4}-\d{2}-\d{2}$/.test(v);
             },
             message: props => `${props.value} is not a valid date format!`
         }
