@@ -18,9 +18,15 @@ mongoose
 
 const app = express();
 app.use(cors())
-app.use(cors({
-  origin: 'https://jiraapis.onrender.com'
-}));
+
+// Configure CORS to allow multiple origins
+const corsOptions = {
+  origin: ['https://jiraapis.onrender.com', 'https://future-swim.surge.sh'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.listen(PORT, () => {
   console.log(`server listening on port 5000, http://localhost:${PORT}`);
