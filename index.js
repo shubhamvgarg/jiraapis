@@ -21,7 +21,7 @@ app.use(cors())
 
 // Configure CORS to allow multiple origins
 const corsOptions = {
-  origin: ['https://jiraapis.onrender.com', 'https://future-swim.surge.sh'],
+  origin: ['https://jiraapis.onrender.com', 'https://future-swim.surge.sh','https://react-task-list.surge.sh/'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 };
